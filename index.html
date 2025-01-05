@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MadeMax Equipments</title>
+    <!-- Google Fonts -->
+
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <!-- Material Icons -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            /* font-family: 'Poppins', sans-serif; */
+        }
+
+        body {
+            background-color: #1e1e1e;
+            color: #f1f1f1;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        header {
+  background-color: #111;
+  color: #f1f1f1;
+  padding: 10px 0;
+  text-align: center;
+  justify-content: space-around; /* This is the key change */
+  width: 100%;
+  display: flex; 
+}
+
+        header h1 {
+            display: inline;
+            font-size: 2em;
+            letter-spacing: 2px;
+            color: #FFEE00; /* Bright yellow */
+        }
+
+        nav {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-top: 10px;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #f1f1f1;
+            font-weight: 600;
+            font-size: 1.2em;
+        }
+
+        nav a:hover {
+            color: #FFEE00;
+        }
+
+        .main-container {
+            max-width: 1200px;
+            margin: 40px auto;
+            padding: 20px;
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
+        }
+
+        .product-card {
+            background-color: #222;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+            transition: transform 0.3s ease;
+        }
+
+        .product-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .product-card img {
+            max-width: 100%;
+            border-radius: 10px;
+        }
+
+        .product-card h3 {
+            color: #FFEE00;
+            margin-top: 15px;
+            font-size: 1.5em;
+        }
+
+        .product-card p {
+            color: #ccc;
+            margin-top: 10px;
+            font-size: 1em;
+        }
+
+        .product-card .price {
+            color: #FFEE00;
+            font-size: 1.2em;
+            margin-top: 10px;
+        }
+
+        .contact-form {
+            background-color: #333;
+            padding: 20px;
+            margin-top: 40px;
+            border-radius: 10px;
+            max-width: 800px;
+            margin: 40px auto;
+        }
+
+        .contact-form h2 {
+            color: #FFEE00;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .contact-form input,
+        .contact-form textarea {
+            width: 100%;
+            padding: 15px;
+            margin: 10px 0;
+            border: 1px solid #444;
+            border-radius: 5px;
+            background-color: #222;
+            color: #fff;
+            font-size: 1em;
+        }
+
+        .contact-form button {
+            background-color: #FFEE00;
+            color: #111;
+            padding: 15px 25px;
+            border: none;
+            font-size: 1.2em;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .contact-form button:hover {
+            background-color: #ffaa00;
+        }
+
+        footer {
+            background-color: #111;
+            color: #f1f1f1;
+            padding: 10px 0;
+            text-align: center;
+            margin-top: 40px;
+        }
+
+        footer p {
+            font-size: 1em;
+        }
+
+        .cart-btn {
+            background-color: #FFEE00;
+            color: #111;
+            padding: 10px 20px;
+            border: none;
+            font-size: 1.2em;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .cart-btn i {
+            font-size: 1.5em;
+        }
+        .hero-container {
+    position: relative;
+    width: 80%;
+    margin: 0 auto;
+    overflow: hidden;
+    /* background-color: #f5f5f5; */
+    text-align: center;
+    padding: 20px 0;
+}
+
+.hero-carousel {
+    display: flex;
+    animation: slide 15s infinite;
+    will-change: transform;
+}
+
+.hero-slide {
+    min-width: 100%;
+    position: relative;
+}
+
+.hero-slide img {
+    width: 100%;
+    border-radius: 10px;
+}
+
+.hero-caption {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(0, 0, 0, 0.5);
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 8px;
+}
+
+.hero-caption h2 {
+    font-size: 1.5rem;
+    margin: 0;
+}
+
+.hero-caption p {
+    font-size: 1rem;
+    margin: 5px 0 0;
+}
+
+.cta-button {
+    margin-top: 20px;
+}
+
+.cta-button button {
+    background-color: gold;
+    color: #000;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.cta-button button:hover {
+    background-color: #ffa500;
+}
+
+/* Keyframes for sliding effect */
+@keyframes slide {
+    0%, 33% {
+        transform: translateX(0%);
+    }
+    34%, 66% {
+        transform: translateX(-100%);
+    }
+    67%, 100% {
+        transform: translateX(-200%);
+    }
+}
+
+    </style>
+</head>
+<body>
+
+<header >
+    <img src="https://via.placeholder.com/50x50" alt="logo">  <h1>MadeMax Equipments</h1> 
+    <nav>
+        <a href="#">Home</a>
+        <a href="#">Products</a>
+        <a href="#">About Us</a>
+        <a href="#">Contact</a>
+    </nav>
+</header>
+
+<div class="hero-container">
+    <div class="hero-carousel">
+        <div class="hero-slide">
+            <img src="https://via.placeholder.com/800x400" alt="Featured Product 1">
+            <div class="hero-caption">
+                <h2>Manual Curved Treadmill</h2>
+                <p>KSh 275,000</p>
+            </div>
+        </div>
+        <div class="hero-slide">
+            <img src="https://via.placeholder.com/800x400" alt="Featured Product 2">
+            <div class="hero-caption">
+                <h2>Crystal X5 Commercial Spin Bike</h2>
+                <p>KSh 72,000</p>
+            </div>
+        </div>
+        <div class="hero-slide">
+            <img src="https://via.placeholder.com/800x400" alt="Featured Product 3">
+            <div class="hero-caption">
+                <h2>Intuition CT-02 Elliptical CrossTrainer</h2>
+                <p>KSh 115,000</p>
+            </div>
+        </div>
+    </div>
+    <div class="cta-button">
+        <button>Shop Now</button>
+    </div>
+</div>
+
+
+
+<main>
+    <div class="main-container">
+        <!-- Cardio Equipment Section -->
+        <div class="product-card">
+            <img src="https://via.placeholder.com/300x200" alt="Commercial Treadmill">
+            <h3>Manual Curved Treadmill</h3>
+            <p>Durable, efficient, and perfect for both home and gym use.</p>
+            <div class="price"><del>KSh 300,000</del> KSh 275,000</div>
+            <button class="cart-btn">
+                <i class="fas fa-shopping-cart"></i> Add to Cart
+            </button>
+        </div>
+    
+        <div class="product-card">
+            <img src="https://via.placeholder.com/300x200" alt="Crystal X5 Spin Bike">
+            <h3>Crystal X5 Commercial Spin Bike</h3>
+            <p>Great for intense cardio with adjustable resistance and comfort.</p>
+            <div class="price"><del>KSh 78,000</del> KSh 72,000</div>
+            <button class="cart-btn">
+                <i class="fas fa-shopping-cart"></i> Add to Cart
+            </button>
+        </div>
+    
+        <div class="product-card">
+            <img src="https://via.placeholder.com/300x200" alt="Elliptical Trainer">
+            <h3>Intuition CT-02 Elliptical CrossTrainer</h3>
+            <p>Low-impact cardio machine, perfect for all fitness levels.</p>
+            <div class="price">KSh 115,000</div>
+            <button class="cart-btn">
+                <i class="fas fa-shopping-cart"></i> Add to Cart
+            </button>
+        </div>
+    
+        <!-- Strength Training Equipment -->
+        <div class="product-card">
+            <img src="https://via.placeholder.com/300x200" alt="Olympic Barbell 1.8M">
+            <h3>1.8M Olympic Barbell</h3>
+            <p>Heavy-duty barbell for strength training and weightlifting.</p>
+            <div class="price">KSh 14,000</div>
+            <button class="cart-btn">
+                <i class="fas fa-shopping-cart"></i> Add to Cart
+            </button>
+        </div>
+    
+        <div class="product-card">
+            <img src="https://via.placeholder.com/300x200" alt="Integrated Cable Crossover & Smith Machine">
+            <h3>Integrated Cable Crossover & Smith Machine</h3>
+            <p>Professional strength equipment for all major muscle groups.</p>
+            <div class="price">KSh 450,000</div>
+            <button class="cart-btn">
+                <i class="fas fa-shopping-cart"></i> Add to Cart
+            </button>
+        </div>
+    
+        <div class="product-card">
+            <img src="https://via.placeholder.com/300x200" alt="Adjustable Weight Bench">
+            <h3>Adjustable Decline Bench</h3>
+            <p>Perfect for chest, abs, and strength training workouts.</p>
+            <div class="price">KSh 50,000</div>
+            <button class="cart-btn">
+                <i class="fas fa-shopping-cart"></i> Add to Cart
+            </button>
+        </div>
+    
+        <!-- Gym Accessories -->
+        <div class="product-card">
+            <img src="https://via.placeholder.com/300x200" alt="Kettlebell Storage Rack">
+            <h3>Kettlebell Storage Rack</h3>
+            <p>Organize your kettlebells neatly with this durable storage rack.</p>
+            <div class="price">KSh 25,000</div>
+            <button class="cart-btn">
+                <i class="fas fa-shopping-cart"></i> Add to Cart
+            </button>
+        </div>
+    
+        <div class="product-card">
+            <img src="https://via.placeholder.com/300x200" alt="Yoga Mat">
+            <h3>Premium Yoga Mat</h3>
+            <p>Non-slip, durable, and comfortable mat for your yoga and stretching sessions.</p>
+            <div class="price">KSh 3,500</div>
+            <button class="cart-btn">
+                <i class="fas fa-shopping-cart"></i> Add to Cart
+            </button>
+        </div>
+    
+        <!-- Home Hardware Tools (Unique Products) -->
+        <div class="product-card">
+            <img src="https://via.placeholder.com/300x200" alt="Adjustable Wrench">
+            <h3>Adjustable Wrench Set</h3>
+            <p>High-quality, adjustable wrenches for all your DIY and home projects.</p>
+            <div class="price">KSh 2,500</div>
+            <button class="cart-btn">
+                <i class="fas fa-shopping-cart"></i> Add to Cart
+            </button>
+        </div>
+    
+        <div class="product-card">
+            <img src="https://via.placeholder.com/300x200" alt="Power Drill Set">
+            <h3>Power Drill Set</h3>
+            <p>Durable and efficient drill set for home repairs and maintenance.</p>
+            <div class="price">KSh 7,500</div>
+            <button class="cart-btn">
+                <i class="fas fa-shopping-cart"></i> Add to Cart
+            </button>
+        </div>
+    
+        <div class="product-card">
+            <img src="https://via.placeholder.com/300x200" alt="Hammer Set">
+            <h3>Heavy-Duty Hammer Set</h3>
+            <p>Durable hammer set for all your home and construction needs.</p>
+            <div class="price">KSh 3,000</div>
+            <button class="cart-btn">
+                <i class="fas fa-shopping-cart"></i> Add to Cart
+            </button>
+        </div>
+    </div>
+    
+    </div>
+
+    <div class="contact-form">
+        <h2>Contact Us</h2>
+        <form id="contactForm" action="mailto:mademax@gmail.com" method="post" enctype="text/plain">
+            <input type="text" name="name" placeholder="Your Name" required>
+            <input type="email" name="email" placeholder="Your Email" required>
+            <textarea name="message" placeholder="Your Message" rows="4" required></textarea>
+            <button type="submit">Send Message</button>
+        </form>
+    </div>
+</main>
+
+<footer>
+    <p>MadeMax Equipments | Made in Nairobi and Mombasa, Kenya | Established in Central Kenya | Call us: 0719301330</p>
+</footer>
+
+<script>
+
+document.addEventListener("DOMContentLoaded", () => {
+    const heroCarousel = document.querySelector(".hero-carousel");
+    const slides = document.querySelectorAll(".hero-slide");
+    let currentIndex = 0;
+
+    setInterval(() => {
+        currentIndex = (currentIndex + 1) % slides.length;
+        heroCarousel.style.transform = `translateX(-${currentIndex * 100}%)`;
+    }, 1000); // Change slide every 5 seconds
+});
+
+
+
+
+    // Add functionality for cart button if needed, example
+    const cartButtons = document.querySelectorAll('.cart-btn');
+    cartButtons.forEach(button => {
+        button.addEventListener('click', () => {
+            alert('Item added to cart!');
+        });
+    });
+</script>
+
+</body>
+</html>
